@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 
-namespace Naming._01._Basic_Naming
+namespace Naming._02._Meaningful_Words
 {
     /// <summary>
-    /// 1. Identify and rename all the identifiers with poor names (excluding the namespace).
+    /// 1. Identify and rename all the identifiers with poor names.
+	/// 2. Identify any literals in the code and find a way to make their purpose clear.
+	/// 3. Identify at least one piece of logic whose intent is not clear and extract it into a method with a meaningful name.
     /// </summary>
     class CourseService
     {

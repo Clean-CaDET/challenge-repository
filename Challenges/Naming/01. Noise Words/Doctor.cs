@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Naming._02._Meaningful_Words
+namespace Naming._01._Noise_Words
 {
     /// <summary>
     /// 1. Identify all the names that contain meaningless words.
