@@ -9,8 +9,8 @@ namespace Naming._01._Noise_Words
     /// </summary>
     class DoctorInfo
     {
-        private int _doctorId;
-        private ISet<Specialization> _specializations;
+        public int _doctorId;
+        public ISet<Specialization> _specializations;
 
         public bool HasSpecializations(ISet<Specialization> specializationSet)
         {
@@ -39,6 +39,6 @@ namespace Naming._01._Noise_Words
 
     internal class Specialization
     {
-        private string _nameStr;
+        public string _nameStr;
     }
 }
