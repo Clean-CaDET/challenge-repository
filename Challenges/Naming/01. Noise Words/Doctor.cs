@@ -5,12 +5,12 @@ namespace Naming._01._Noise_Words
 {
     /// <summary>
     /// 1. Identify all the names that contain meaningless words.
-    /// 2. Use the refactoring tool supported by your IDE to rename these identifiers into something meaningful.
+    /// 2. Remove or rename these identifiers into something meaningful.
     /// </summary>
     class DoctorInfo
     {
-        public int _doctorId;
-        public ISet<Specialization> _specializations;
+        private int _doctorId;
+        private ISet<Specialization> _specializations;
 
         public bool HasSpecializations(ISet<Specialization> specializationSet)
         {
@@ -39,6 +39,6 @@ namespace Naming._01._Noise_Words
 
     internal class Specialization
     {
-        public string _nameStr;
+        private string _nameStr;
     }
 }
