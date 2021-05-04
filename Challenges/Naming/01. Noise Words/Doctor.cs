@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Naming._01._Noise_Words
+namespace Naming.Noise
 {
     /// <summary>
+    /// ** Do not modify the namespace name or the Run class name and Main method header. **
     /// 1. Identify all the names that contain meaningless words.
     /// 2. Remove or rename these identifiers into something meaningful.
     /// </summary>

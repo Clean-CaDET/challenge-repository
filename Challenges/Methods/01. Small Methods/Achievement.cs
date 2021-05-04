@@ -2,18 +2,17 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace Methods._01._Small_Methods
+namespace Methods.Small
 {
+    /// <summary>
+    /// ** Do not modify the namespace name or the Run class name and Main method header. **
+    /// 1) Extract multiple methods from the AwardAchievement method.
+    /// 2) For each method, define the most appropriate name.
+    /// </summary>
     class AchievementService
     {
         private readonly string _achievementStorageLocation = "../Storage/Achievements/";
-        
-        /// <summary>
-        /// Visual Studio Code supports refactoring of C# with the appropriate plugin.
-        /// For the purpose of this experiment perform the extract method refactoring manually.
-        /// 1) Extract multiple methods from the AwardAchievement method.
-        /// 2) For each method, define the most appropriate name.
-        /// </summary>
+
         public void AwardAchievement(int userId, int newAchievementId)
         {
             //Load data for new achievement

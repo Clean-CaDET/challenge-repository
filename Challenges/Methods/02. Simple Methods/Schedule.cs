@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Methods._02._Simple_Methods
+namespace Methods.Simple
 {
+    /// <summary>
+    /// ** Do not modify the namespace name or the Run class name and Main method header. **
+    /// 1) By looking at the comments, extract the appropriate methods.
+    /// 2) Identify similar code in the new methods and reduce code duplication by extracting a shared method.
+    /// </summary>
     class ScheduleService
     {
-        /// <summary>
-        /// 1) By looking at the comments, extract the appropriate methods.
-        /// 2) Identify similar code in the new methods and reduce code duplication by extracting a shared method.
-        /// </summary>
         bool IsAvailable(Doctor doctor, Operation operation)
         {
             //Check if doctor is on vacation.
