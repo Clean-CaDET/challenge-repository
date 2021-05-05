@@ -5,6 +5,7 @@ using System.Linq;
 namespace Naming.Noise
 {
     /// <summary>
+    /// CHALLENGE ID: 12
     /// ** Do not modify the namespace name or the Run class method headers. **
     /// 1. Identify all the names that contain meaningless words.
     /// 2. Remove or rename these identifiers into something meaningful.

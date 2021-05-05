@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Methods.Params
 {
     /// <summary>
-    /// ** Do not modify the namespace name or the Run class name and Main method header. **
+    /// CHALLENGE ID: 49
     /// 1. Apply the strategies for parameter list reduction for the methods in the following classes.
     /// </summary>
     class CourseService

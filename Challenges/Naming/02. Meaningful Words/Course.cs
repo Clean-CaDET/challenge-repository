@@ -3,6 +3,7 @@
 namespace Naming.Meaning
 {
     /// <summary>
+    /// CHALLENGE ID: 7
     /// ** Do not modify the namespace name or the Run class name and Main method header. **
     /// 1. Identify and rename all the identifiers with poor names.
     /// 2. Identify any literals in the code and find a way to make their purpose clear.

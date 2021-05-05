@@ -5,9 +5,9 @@ using System.IO;
 namespace Methods.Small
 {
     /// <summary>
-    /// ** Do not modify the namespace name or the Run class name and Main method header. **
-    /// 1) Extract multiple methods from the AwardAchievement method.
-    /// 2) For each method, define the most appropriate name.
+    /// CHALLENGE ID: 41
+    /// 1. Extract multiple methods from the AwardAchievement method.
+    /// 2. For each method, define the most appropriate name.
     /// </summary>
     class AchievementService
     {
