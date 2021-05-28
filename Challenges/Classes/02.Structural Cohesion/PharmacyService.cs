@@ -11,125 +11,132 @@ namespace Classes.Structural
     /// 2. Identify similar code in the new methods and reduce code duplication by extracting a shared method.
     /// 3. Ensure there are no syntax errors and that the Run class is aware of any renaming of the other classes and their members.
     /// </summary>
-    class PharmacyService
+    public class PharmacyService
     {
-        internal bool IsWorking(Pharmacist pharmacist, Stocktake stocktake, Weekend weekend)
-        {
-            //Check if pharmacist is on vacation.
-            if (pharmacist.VacationSlots != null)
-            {
-                foreach (VacationSlot vacation in pharmacist.VacationSlots)
-                {
-                    DateTime vacationStart = vacation.StartTime;
-                    DateTime vacationEnd = vacation.EndTime;
+        public List<Purchase> Purchases { get; set; }
+        public List<Pharmacist> Pharmacists { get; set; }
 
-                    if (stocktake.StartTime > stocktake.EndTime) throw new InvalidOperationException("Invalid stocktake time frame.");
-                    //---s1---| vacationStart |---e1---s2---e2---s3---| vacationEnd |---e3---
-                    if (stocktake.StartTime <= vacationEnd && stocktake.EndTime >= vacationStart)
+        internal Purchase GetMostExpensiveGranulePurchaseInPharmacyForPharmacists(List<int> pharmacistIds)
+        {
+            // Get only pharmacists from this pharmacy.
+            List<Pharmacist> pharmacists = new List<Pharmacist>();
+            foreach (var pharmacist in Pharmacists)
+            {
+                foreach (var pharmacistId in pharmacistIds)
+                {
+                    if (pharmacist.Id == pharmacistId)
                     {
-                        return false;
+                        pharmacists.Add(pharmacist);
                     }
                 }
             }
 
-            //Check if pharmacist is doing stocktakes at the time.
-            if (pharmacist.Stocktakes != null)
+            // Get all purchases from pharmacists.
+            List<Purchase> purchases = new List<Purchase>();
+            foreach (var purchase in Purchases)
             {
-                foreach (Stocktake st in pharmacist.Operations)
+                foreach (var pharmacist in pharmacists)
                 {
-                    DateTime stStart = st.StartTime;
-                    DateTime stEnd = st.EndTime;
-
-                    if (stocktake.StartTime > stocktake.EndTime) throw new InvalidOperationException("Invalid stocktake time frame.");
-                    //---s1---| oldStStart |---e1---s2---e2---s3---| oldStEnd |---e3---
-                    if (stocktake.StartTime <= stEnd && stocktake.EndTime >= stStart)
+                    if (pharmacist == purchase.Pharmacist)
                     {
-                        return false;
+                        purchases.Add(purchase);
                     }
                 }
             }
 
-            //Check if it is weekend.
-            if (pharmacist.Weekends != null)
+            // Get only purchases where bought pill is in granule form.
+            List<Purchase> granulePurchases = new List<Purchase>();
+            foreach (var purchase in purchases)
             {
-                foreach (Weekend week in pharmacist.Weekends)
+                foreach (var purchasedPill in purchase.PurchasedPills)
                 {
-                    DateTime weekendStart = week.StartTime;
-                    DateTime weekendEnd = week.EndTime;
-
-                    if (weekend.StartTime > weekend.EndTime) throw new InvalidOperationException("Invalid weekend time frame.");
-                    //---s1---| weekendStart |---e1---s2---e2---s3---| weekendEnd |---e3---
-                    if (weekend.StartTime <= weekendEnd && weekend.EndTime >= weekendStart)
+                    if (purchasedPill.Form == PillForm.Granule)
                     {
-                        return false;
+                        granulePurchases.Add(purchase);
                     }
                 }
             }
 
-            return true;
-        }
-    }
-
-    class VacationSlot
-    {
-        public DateTime StartTime { get; }
-        public DateTime EndTime { get; }
-
-        public VacationSlot(DateTime startTime, DateTime endTime)
-        {
-            StartTime = startTime;
-            EndTime = endTime;
-        }
-    }
-
-    class Stocktake
-    {
-        public DateTime StartTime { get; }
-
-        public DateTime EndTime { get; }
-
-        public Stocktake(DateTime startTime, DateTime endTime)
-        {
-            StartTime = startTime;
-            EndTime = endTime;
-        }
-    }
-
-    class Weekend
-    {
-        public DateTime StartTime { get; }
-
-        public DateTime EndTime { get; }
-
-        public Weekend(DateTime startTime, DateTime endTime)
-        {
-            StartTime = startTime;
-            EndTime = endTime;
-        }
-    }
-
-    class Pharmacist
-    {
-        public List<Stocktake> Stocktakes { get; }
-        public List<VacationSlot> VacationSlots { get; }
-        public List<Weekend> Weekends { get; }
-
-        public Pharmacist()
-        {
-            Stocktake = new List<Stocktake>
+            // Get most expensive purchase.
+            double maxGranulePurchaseCost = 0;
+            Purchase mostExpensiveGranulePurchase = null;
+            foreach (var granulePurchase in granulePurchases)
             {
-                new Stocktake(DateTime.Now.AddDays(1), DateTime.Now.AddDays(2)),
-            };
-            VacationSlots = new List<VacationSlot>
-            {
-                new VacationSlot(DateTime.Now.AddDays(3), DateTime.Now.AddDays(4)),
-                new VacationSlot(DateTime.Now.AddDays(5), DateTime.Now.AddDays(9))
-            };
-            Weekends = new List<Weekend>
-            {
-                new Weekend(DateTime.Now.AddDays(10), DateTime.Now.AddDays(11)),
-                new Weekend(DateTime.Now.AddDays(11), DateTime.Now.AddDays(12))
-            };
+                if (granulePurchase.Cost > maxGranulePurchaseCost)
+                {
+                    maxGranulePurchaseCost = granulePurchase.Cost;
+                    mostExpensiveGranulePurchase = granulePurchase;
+                }
+            }
+
+            return mostExpensiveGranulePurchase;
+        }
+    }
+
+    public class Pharmacist
+    {
+        public int Id { get; }
+        public string FirstName { get; }
+        public string LastName { get; }
+        public string Email { get; }
+        public string PhoneNumber { get; }
+
+        public Pharmacist(int id, string firstName, string lastName, string email, string phoneNumber)
+        {
+            Id = id;
+            FirstName = firstName;
+            LastName = lastName;
+            Email = email;
+            PhoneNumber = phoneNumber;
+        }
+    }
+
+    public class Pill
+    {
+        public int Id { get; }
+        public string Name { get; }
+        public PillForm Form { get; }
+        public DateTime ExpiryDate { get; }
+        public double MgMeasure { get; }
+        public double Price { get; }
+
+        public Pill(int id, string name, PillForm form, DateTime expiryDate, double mgMeasure, double price)
+        {
+            Id = id;
+            Name = name;
+            Form = form;
+            ExpiryDate = expiryDate;
+            MgMeasure = mgMeasure;
+            Price = price;
+        }
+    }
+
+    public enum PillForm
+    {
+        Tablet,
+        Capsule,
+        Spansule,
+        Softgel,
+        Liquid,
+        Granule,
+        Powder
+    }
+
+    public class Purchase
+    {
+        public int Id { get; }
+        public double Cost { get; }
+        public List<Pill> PurchasedPills { get; }
+        public DateTime PurchaseTime { get; }
+        public Pharmacist Pharmacist { get; }
+
+        public Purchase(int id, double cost, List<Pill> purchasedPills, DateTime purchaseTime, Pharmacist pharmacist)
+        {
+            Id = id;
+            Cost = cost;
+            PurchasedPills = purchasedPills;
+            PurchaseTime = purchaseTime;
+            Pharmacist = pharmacist;
         }
     }
 
@@ -138,9 +145,27 @@ namespace Classes.Structural
     {
         private readonly PharmacyService _service = new PharmacyService();
 
-        public bool IsWorking(DateTime begin, DateTime end)
+        public Run()
         {
-            return _service.IsWorking(new Pharmacist(), new Stocktake(begin, end));
+            Pharmacist pharmacistFirst = new Pharmacist(12787, "Lazar", "Višnjić", "lazar55visnjic@gmail.com", "021/7745-720");
+            Pharmacist pharmacistSecond = new Pharmacist(24221, "Katarina", "Miljković", "KataRinaMiljkoVic00@gmail.com", "021/4364-001");
+            _service.Pharmacists = new List<Pharmacist> { pharmacistFirst, pharmacistSecond };
+
+            Pill pillFirst = new Pill(789, "Brufen", PillForm.Granule, DateTime.Now.AddMonths(32), 400, 101.99);
+            Pill pillSecond = new Pill(799, "Vitamin C", PillForm.Granule, DateTime.Now.AddMonths(15), 550, 100.00);
+            Pill pillThird = new Pill(748, "Vitamin B", PillForm.Capsule, DateTime.Now.AddYears(1), 300, 570.35);
+            Pill pillFourth = new Pill(712, "Aspirin", PillForm.Granule, DateTime.Now.AddMonths(21), 150, 237.50);
+            _service.Purchases = new List<Purchase>
+            {
+                new Purchase(5550121, 401.99, new List<Pill> { pillFirst, pillSecond, pillSecond, pillSecond, pillSecond}, DateTime.Now.AddMinutes(150), pharmacistFirst),
+                new Purchase(5550122, 807.85, new List<Pill> { pillThird, pillFourth }, DateTime.Now.AddHours(27), pharmacistSecond),
+                new Purchase(5455510, 670.35, new List<Pill> { pillSecond, pillThird }, DateTime.Now.AddDays(3), new Pharmacist(44541, "Sanja", "Gojković", "123sanja123@gmail.com", "021/7522-616"))
+            };
+        }
+
+        public Purchase GetMostExpensiveGranulePurchaseInPharmacyForPharmacists(List<int> pharmacistIds)
+        {
+            return _service.GetMostExpensiveGranulePurchaseInPharmacyForPharmacists(pharmacistIds);
         }
     }
     #endregion
