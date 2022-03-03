@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Naming.Meaning
+namespace Naming.Domain
 {
     /// <summary>
     /// CHALLENGE ID: TODO
