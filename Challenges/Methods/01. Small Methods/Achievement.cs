@@ -5,9 +5,9 @@ using System.IO;
 namespace Methods.Small
 {
     /// <summary>
-    /// CHALLENGE ID: 41
-    /// 1. Extract multiple methods from the AwardAchievement method.
-    /// 2. For each method, define the most appropriate name.
+    /// CHALLENGE ID: TODO
+    /// 1. Ekstrahuj više metoda iz AwardAchievement metode.
+    /// 2. Za svaku novu metodu formuliši značajno ime.
     /// </summary>
     class AchievementService
     {

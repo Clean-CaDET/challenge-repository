@@ -4,11 +4,11 @@ using System.Collections.Generic;
 namespace Methods.Simple
 {
     /// <summary>
-    /// CHALLENGE ID: 44
-    /// ** Do not modify the namespace name or the Run class name and its method headers. **
-    /// 1. By looking at the comments, extract the appropriate methods.
-    /// 2. Identify similar code in the new methods and reduce code duplication by extracting a shared method.
-    /// 3. Ensure there are no syntax errors and that the Run class is aware of any renaming of the other classes and their members.
+    /// CHALLENGE ID: TODO
+    /// ** Nemoj da modifikuješ naziv namespace-a ili naziv Run klase i njenih metoda. **
+    /// 1. Razmotri komentare i ekstrahuj odgovarajuće metode.
+    /// 2. Identifikuj sličan kod u novim metodama i ukloni dupliranje koda definicijom parametrizovane funkcije.
+    /// 3. Potvrdi da nema sintaksnih grešaka i da Run klasa isprati bilo kakvih preimenovanja u drugim klasama i metodama (ako ih je bilo).
     /// </summary>
     class ScheduleService
     {

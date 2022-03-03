@@ -5,11 +5,11 @@ using System.Linq;
 namespace Naming.Noise
 {
     /// <summary>
-    /// CHALLENGE ID: 12
-    /// ** Do not modify the namespace name or the Run class method headers. **
-    /// 1. Identify all the names that contain meaningless words.
-    /// 2. Remove or rename these identifiers into something meaningful.
-    /// 3. Ensure there are no syntax errors and that the Run class is aware of any renaming of the other classes and their members.
+    /// CHALLENGE ID: TODO
+    /// ** Nemoj da modifikuješ naziv namespace-a, Run klase i zaglavlja metoda ove klase. **
+    /// 1. Odredi sve nazive koji sadrže generične ili beznačajne reči.
+    /// 2. Ukloni ove reči ili ih promeni u nešto značajnije.
+    /// 3. Potvrdi da nema sintaksnih grešaka i da je Run klasa ispratila bilo kakva preimenovanja klasa i metoda koje koristi.
     /// </summary>
     public class DoctorInfo
     {

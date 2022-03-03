@@ -4,8 +4,8 @@ using System.Collections.Generic;
 namespace Methods.Params
 {
     /// <summary>
-    /// CHALLENGE ID: 49
-    /// 1. Apply the strategies for parameter list reduction for the methods in the following classes.
+    /// CHALLENGE ID: TODO
+    /// 1. Primeni odgovarajuće strategije za redukciju liste parametra za metode ispod.
     /// </summary>
     class CourseService
     {

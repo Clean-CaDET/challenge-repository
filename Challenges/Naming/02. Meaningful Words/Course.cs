@@ -3,14 +3,15 @@
 namespace Naming.Meaning
 {
     /// <summary>
-    /// CHALLENGE ID: 7
-    /// ** Do not modify the namespace name or the Run class name and Main method header. **
-    /// 1. Identify and rename all the identifiers with poor names.
-    /// 2. Identify any literals in the code and find a way to make their purpose clear.
-    /// 3. Identify at least one piece of logic whose intent is not clear and extract it into a method with a meaningful name.
+    /// CHALLENGE ID: TODO
+    /// ** Nemoj da modifikuješ naziv namespace-a, Run klase i zaglavlja metoda ove klase. **
+    /// 1. Identifikuj i preimenuj sve nejasne nazive tako da koriste domensku terminologiju.
+    /// 2. Instrukcije "c.Status.Equals("enrolled") || c.Status.Equals("current")" možemo izdvojiti u zasebnu metodu
+    ///     čiji naziv objašnjava značenje ove logike. Napravi ovakvu funkciju i dodeli joj domenski značajan naziv.
     /// </summary>
     public class CourseService
     {
+        private const int Max = 6;
         public void Add(Course nc, Student s)
         {
             int i = 0;
@@ -19,7 +20,7 @@ namespace Naming.Meaning
             {
                 if (c.Status.Equals("enrolled") || c.Status.Equals("current")) i++;
             }
-            if (i < 6) //Check course limit
+            if (i < Max) //Check course limit
             {
                 s.Courses.Add(nc);
             }
