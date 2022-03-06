@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 namespace Naming.Meaningful
 {
     /// <summary>
-    /// CHALLENGE ID: TODO
+    /// CHALLENGE ID
     /// 1. Razmotri opis sledeće metode i analiziraj njeno telo.
     /// 2. Sa boljim razumevanjem šta segmenti funkcije rade, preimenuj nazive identifikatora koji se koriste u telu WordExtractor klase.
     /// </summary>
@@ -21,7 +21,7 @@ namespace Naming.Meaningful
             var letters = Regex.Matches(nameString, "[A-Z]");
             
             List<string> single = new();
-            for (int i = 0; i < wordList.Length - 1; i++)
+            for (int i = 0; i < letters.Count; i++)
             {
                 single.Add(letters[i] + wordList[i + 1]);
             }

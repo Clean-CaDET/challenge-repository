@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 namespace Methods.Nesting
 {
     /// <summary>
-    /// CHALLENGE ID: TODO
+    /// CHALLENGE ID
     /// 1. Razmotri sledeći kod i pojednostavi ga tako što ćeš izdvojiti složene celine u zasebne metode.
     /// </summary>
     public class WordExtractor
@@ -15,7 +15,7 @@ namespace Methods.Nesting
             var capitalLetters = Regex.Matches(pascalCaseName, "[A-Z]");
             
             List<string> singleWords = new();
-            for (int i = 0; i < wordsSplitByCapitalLetters.Length - 1; i++)
+            for (int i = 0; i < capitalLetters.Count; i++)
             {
                 singleWords.Add(capitalLetters[i] + wordsSplitByCapitalLetters[i + 1]);
             }
