@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 namespace Methods.Nesting
 {
     /// <summary>
-    /// CHALLENGE ID
+    /// ID izazova je dostupan na web prikazu.
     /// 1. Razmotri sledeći kod i pojednostavi ga tako što ćeš izdvojiti složene celine u zasebne metode.
     /// </summary>
     public class WordExtractor

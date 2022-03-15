@@ -5,7 +5,7 @@ using System.Linq;
 namespace Naming.Noise
 {
     /// <summary>
-    /// CHALLENGE ID: TODO
+    /// ID izazova je dostupan na web prikazu.
     /// ** Nemoj da modifikuješ naziv namespace-a, Run klase i zaglavlja metoda ove klase. **
     /// 1. Odredi sve nazive koji sadrže generične ili beznačajne reči.
     /// 2. Ukloni ove reči ili ih promeni u nešto značajnije.

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Methods.Params
 {
     /// <summary>
-    /// CHALLENGE ID: TODO
+    /// ID izazova je dostupan na web prikazu.
     /// 1. Primeni odgovarajuće strategije za redukciju liste parametra za metode ispod.
     /// </summary>
     class CourseService

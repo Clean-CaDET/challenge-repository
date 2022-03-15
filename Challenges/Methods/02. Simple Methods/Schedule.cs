@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Methods.Simple
 {
     /// <summary>
-    /// CHALLENGE ID: TODO
+    /// ID izazova je dostupan na web prikazu.
     /// ** Nemoj da modifikuješ naziv namespace-a ili naziv Run klase i njenih metoda. **
     /// 1. Razmotri komentare i ekstrahuj odgovarajuće metode.
     /// 2. Identifikuj sličan kod u novim metodama i ukloni dupliranje koda definicijom parametrizovane funkcije.

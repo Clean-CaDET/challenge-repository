@@ -5,7 +5,7 @@ using System.IO;
 namespace Methods.Small
 {
     /// <summary>
-    /// CHALLENGE ID: TODO
+    /// ID izazova je dostupan na web prikazu.
     /// 1. Ekstrahuj više metoda iz AwardAchievement metode.
     /// 2. Za svaku novu metodu formuliši značajno ime.
     /// </summary>

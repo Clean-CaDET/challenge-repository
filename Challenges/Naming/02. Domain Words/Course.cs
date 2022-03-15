@@ -3,7 +3,7 @@
 namespace Naming.Domain
 {
     /// <summary>
-    /// CHALLENGE ID: TODO
+    /// ID izazova je dostupan na web prikazu.
     /// ** Nemoj da modifikuješ naziv namespace-a, Run klase i zaglavlja metoda ove klase. **
     /// 1. Identifikuj i preimenuj sve nejasne nazive tako da koriste domensku terminologiju.
     /// 2. Instrukcije "c.Status.Equals("enrolled") || c.Status.Equals("current")" možemo izdvojiti u zasebnu metodu

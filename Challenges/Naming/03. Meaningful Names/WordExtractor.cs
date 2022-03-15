@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 namespace Naming.Meaningful
 {
     /// <summary>
-    /// CHALLENGE ID
+    /// ID izazova je dostupan na web prikazu.
     /// 1. Razmotri opis sledeće metode i analiziraj njeno telo.
     /// 2. Sa boljim razumevanjem šta segmenti funkcije rade, preimenuj nazive identifikatora koji se koriste u telu WordExtractor klase.
     /// </summary>
