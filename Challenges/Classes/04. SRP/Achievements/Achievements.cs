@@ -36,15 +36,19 @@ namespace Classes.SRP.Achievements
             //Check if user has prerequisite achievements unlocked
             foreach (var prerequisiteAchievement in newAchievement.PrerequisiteAchievementNames)
             {
-                foreach (var a in unlockedAchievements)
-                {
-                    if (a.Name.Equals(prerequisiteAchievement))
-                    {
-                        throw new InvalidOperationException("Prerequisite achievement " + prerequisiteAchievement +
-                                                            " not completed.");
-                    }
+                if(!AchievementIsUnlocked(prerequisiteAchievement, unlockedAchievements)) {
+                    throw new InvalidOperationException("Prerequisite achievement " + prerequisiteAchievement + " not completed.");
                 }
             }
+        }
+
+        private static bool AchievementIsUnlocked(string name, List<Achievement> unlockedAchievements)
+        {
+            foreach (var a in unlockedAchievements)
+            {
+                if (a.Name.Equals(name)) return true;
+            }
+            return false;
         }
 
         private List<Achievement> LoadUserAchievements(int userId, Achievement newAchievement)
