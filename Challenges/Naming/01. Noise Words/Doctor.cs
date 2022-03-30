@@ -50,7 +50,7 @@ namespace Naming.Noise
             _nameStr = name;
         }
 
-        public override bool Equals(object? obj)
+        public override bool Equals(object obj)
         {
             if (!(obj is Specialization other)) return false;
             return other._nameStr.Equals(_nameStr);

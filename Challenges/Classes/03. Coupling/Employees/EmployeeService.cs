@@ -28,7 +28,7 @@ namespace Classes.Coupling.Employees
         public object Surname { get; internal set; }
     }
 
-    internal enum EmploymentStatus
+    public enum EmploymentStatus
     {
         Active,
         Retired

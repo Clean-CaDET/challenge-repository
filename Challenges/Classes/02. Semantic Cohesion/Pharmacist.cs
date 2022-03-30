@@ -1,15 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Classes.Semantic
 {
      /// <summary>
-    /// CHALLENGE ID: 101
-    /// ** Do not modify the namespace name or the Run class method headers. **
-    /// ** Do not modify any constructor or the classes names. **
+    /// ID izazova je dostupan na web prikazu.
     /// 1. Move methods to appropriate classes for good cohesion results.
-    /// 2. Ensure there are no syntax errors and that the Run class is aware of any renaming of the other classes and their members.
     /// </summary>
     public class Pharmacist
     {
@@ -85,67 +81,4 @@ namespace Classes.Semantic
         }
 
     }
-
-    #region Run
-    public class Run
-    {
-        private readonly Pharmacist _pharmacist;
-
-        public Run()
-        {
-            _pharmacist.Id = 135671;
-            _pharmacist.FullName = "Petar Milenković";
-            _pharmacist.StocktakesDone = new List<Stocktake> {
-            new Stocktake(new Dictionary<string, int>
-                {
-                    { "Brufen", 15 },
-                    { "Aspirin", 81 },
-                    { "Panadol", 0 },
-                    { "Paracetamol", 1 }
-                },
-                new Dictionary<string, int>
-                {
-                    { "Vitamin C", 3 },
-                    { "Vitamin B", 24 }
-                },
-                -359,
-                DateTime.Now
-            ),
-            new Stocktake(new Dictionary<string, int>
-                {
-                    { "Brufen", 78 },
-                    { "Aspirin", 0 },
-                    { "Panadol", 0 },
-                    { "Paracetamol", 14 }
-                }, new Dictionary<string, int>
-                {
-                    { "Vitamin C", 5 },
-                    { "Vitamin B", 15 }
-                },
-                671,
-                DateTime.Now.AddDays(31)
-            ),
-            new Stocktake(new Dictionary<string, int>
-                {
-                    { "Brufen", 0 },
-                    { "Aspirin", 47 },
-                    { "Panadol", 6 },
-                    { "Paracetamol", 7 }
-                },
-                new Dictionary<string, int>
-                {
-                    { "Vitamin C", 0 },
-                    { "Vitamin B", 21 }
-                },
-                783,
-                DateTime.Now.AddDays(62)
-            )};
-        }
-
-        public bool HasAllVitaminsForDay(DateTime day)
-        {
-            return _pharmacist.HasAllVitaminsForDay(day);
-        }
-    }
-    #endregion
 }
