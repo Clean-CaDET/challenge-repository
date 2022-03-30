@@ -7,7 +7,7 @@ namespace Classes.SRP.Achievements
     /// <summary>
     /// ID izazova je dostupan na web prikazu.
     /// 1. Refaktoriši kod tako da redukuješ broj odgovornosti koje AchievementService ispunjava.
-    /// 2. Primeni "extract class", "extract method" i "move method" refaktorisanja tokom ovog procesa.
+    /// 2. Primeni "extract class", "extract method" ili "move method" refaktorisanja tokom ovog procesa.
     /// </summary>
     public class AchievementService
     {

@@ -12,9 +12,6 @@ namespace Classes.Coupling.Rental
         int carId;
         List<DateRange> bookings;
 
-        /// <summary>
-        /// How would you reduce couplingStrength(IsCarAvailable, DateRange class)?
-        /// </summary>
         bool IsCarAvailable(DateTime onDay)
         {
             foreach (var booking in bookings)

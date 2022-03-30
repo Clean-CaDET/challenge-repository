@@ -9,12 +9,15 @@ namespace Classes.Coupling.Employees
     /// </summary>
     public class EmployeeService
     {
+        private EmployeeFileRepository _repository = new EmployeeFileRepository();
         void RetireEmployee(Employee e)
         {
             if (e.Status != EmploymentStatus.Active) throw new InvalidOperationException();
             e.Status = EmploymentStatus.Retired;
             e.DateOfRetirement = DateTime.Now;
             e.YearsWorked = e.DateOfRetirement.Year - e.EmploymentDate.Year;
+
+            _repository.Update(e);
         }
     }
 
@@ -32,5 +35,12 @@ namespace Classes.Coupling.Employees
     {
         Active,
         Retired
+    }
+
+    public class EmployeeFileRepository {
+        public void Update(Employee e) {
+            // Code to update employee
+        }
+        // Code containing the rest of storage operations.
     }
 }
