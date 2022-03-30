@@ -21,7 +21,8 @@ namespace Classes.Structural
             _students.Add(newStudent);
         }
 
-        public void EnrollStudent(int studentId, Course course) {
+        public void EnrollStudent(int studentId, Course course)
+        {
             Student student = FindStudent(studentId);
             student.Enroll(course);
         }
@@ -48,7 +49,8 @@ namespace Classes.Structural
             throw new ArgumentException("Course not found.");
         }
 
-        public void RegisterCourse(Course newCourse) {
+        public void RegisterCourse(Course newCourse)
+        {
             foreach (var course in _courses)
             {
                 if (course.Name.Equals(newCourse.Name)) throw new InvalidOperationException("Course with provided name exists.");
