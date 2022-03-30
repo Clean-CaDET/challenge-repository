@@ -12,9 +12,9 @@ namespace Classes.SRP.Achievements
     public class AchievementService
     {
         private readonly string _achievementStorageLocation = "C:/MyGame/Storage/Achievements/";
-        public void AwardAchievement(int userId, int newAchievementId)
+        public void AwardAchievement(int userId, string newAchivemenetName)
         {
-            Achievement newAchievement = LoadAchievement(newAchievementId);
+            Achievement newAchievement = LoadAchievement(newAchivemenetName);
             if (newAchievement == null) throw new Exception("New achievement does not exist in the registry.");
             
             List<Achievement> unlockedAchievements = LoadUserAchievements(userId, newAchievement);
@@ -49,7 +49,6 @@ namespace Classes.SRP.Achievements
 
         private List<Achievement> LoadUserAchievements(int userId, Achievement newAchievement)
         {
-
             //Load unlocked achievements for user
             List<Achievement> unlockedAchievements = new List<Achievement>();
             string[] achievements = File.ReadAllLines(_achievementStorageLocation + userId + ".csv");
@@ -60,7 +59,7 @@ namespace Classes.SRP.Achievements
                 a.Name = achievementElements[0];
                 a.ImagePath = achievementElements[1];
                 //Check if newAchievement is already unlocked.
-                if (a.Name.Equals(newAchievement.Name) && a.ImagePath.Equals(newAchievement.ImagePath))
+                if (a.Name.Equals(newAchievement.Name))
                 {
                     throw new InvalidOperationException("Achievement " + newAchievement.Name + " is already unlocked!");
                 }
@@ -70,7 +69,7 @@ namespace Classes.SRP.Achievements
             return unlockedAchievements;
         }
 
-        private Achievement LoadAchievement(int id)
+        private Achievement LoadAchievement(string name)
         {
             //Load data for new achievement
             Achievement newAchievement = null;
@@ -78,7 +77,7 @@ namespace Classes.SRP.Achievements
             foreach (var achievement in allAchievements)
             {
                 string[] achievementElements = achievement.Split(":");
-                if (!achievementElements[0].Equals(id.ToString())) continue;
+                if (!achievementElements[0].Equals(name)) continue;
                 newAchievement = new Achievement();
                 newAchievement.Name = achievementElements[0];
                 newAchievement.ImagePath = achievementElements[1];

@@ -6,7 +6,7 @@ namespace Classes.SRP.Books
     /// <summary>
     /// ID izazova je dostupan na web prikazu.
     /// 1. Refaktoriši kod tako da redukuješ broj odgovornosti koje Book klasa ispunjava.
-    /// 2. Primeni "extract class", "extract method" i "move method" refaktorisanja tokom ovog procesa.
+    /// 2. Primeni "extract class", "extract method" ili "move method" refaktorisanja tokom ovog procesa.
     /// 3. Isprati da li novi dizajn može da podrži sledeće zahteve i dodatno dopuni i refaktoriši kod ako to nije slučaj:
     ///     a. Praćenje da li je isti čitalac pročitao knjigu više puta.
     ///     b. Praćenje kada je čitalac krenuo da čita knjigu i kada je završio.
