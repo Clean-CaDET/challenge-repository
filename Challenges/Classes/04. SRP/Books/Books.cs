@@ -13,6 +13,7 @@ namespace Classes.SRP.Books
     /// </summary>
     public class Book
     {
+		public int Id { get; }
         public string Title { get; }
         public string Author { get; }
         public string Abstract { get; }
